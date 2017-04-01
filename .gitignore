@@ -2,3 +2,5 @@ node_modules/
 build/
 debug.log
 system.iml
+/nbproject/private/
+nbproject/
