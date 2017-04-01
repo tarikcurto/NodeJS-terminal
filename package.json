@@ -1,0 +1,19 @@
+{
+  "name": "system",
+  "version": "0.0.1",
+  "description": "System manager via JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "red"
+  },
+  "keywords": [
+    "system",
+    "js"
+  ],
+  "author": "tarikcurto",
+  "license": "Apache-2.0"
+}
