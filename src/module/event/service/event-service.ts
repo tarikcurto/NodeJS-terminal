@@ -1,9 +1,9 @@
 
 import * as RxJS from 'rxjs';
 
-export class Event {
+export class EventService {
 
-  protected rxjsEvent;
+  protected rxjsEvent: any;
 
   constructor() {
 

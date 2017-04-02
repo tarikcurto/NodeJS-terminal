@@ -1,5 +1,5 @@
 
-import {TerminalArgumentInterface} from './terminal-argument-interface.system';
+import {TerminalArgumentInterface} from './terminal-argument-interface';
 
 /**
  * TerminalArgumentService is a util for
