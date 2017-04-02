@@ -1,7 +1,7 @@
 {
   "name": "nodejs-terminal",
-  "version": "0.0.1",
-  "description": "System manager via JS",
+  "version": "1.0.1",
+  "description": "System terminal for NodeJS",
   "main": "index.js",
   "scripts": {
     "start": "node build/index.js",

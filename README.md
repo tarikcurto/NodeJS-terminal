@@ -1,9 +1,6 @@
+--- Example of terminal ---
 
-import {TerminalExecutionService as _TerminalExecutionService}  from './src/module/terminal/service/terminal-execution-service';
-
-export const TerminalExecutionService = _TerminalExecutionService;
-
-/* --- Example of terminal ---
+import {TerminalExecutionService} from 'nodejs-terminal';
 
 //instance
 let terminalExecution = new TerminalExecutionService();
@@ -18,5 +15,3 @@ terminalExecution.setCommandName('ipconfig');
 terminalExecution.argumentService.addArgument({key: '/all'})
 terminalExecution.setMode(TerminalExecutionService.EXECUTION_ASYNC)
 terminalExecution.exec();
-
-*/
