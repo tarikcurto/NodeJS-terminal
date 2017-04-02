@@ -1,5 +1,5 @@
 {
-  "name": "NodeJS-terminal",
+  "name": "nodejs-terminal",
   "version": "0.0.1",
   "description": "System manager via JS",
   "main": "index.js",
