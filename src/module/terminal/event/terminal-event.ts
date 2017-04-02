@@ -2,6 +2,7 @@
 import {EventService} from '../../event/service/event-service';
 import {EventInterface} from '../../event/service/event-interface';
 import {TerminalExecutionStartEventInterface} from './terminal-execution-start-event-interface';
+import {TerminalExecutionMessageEventInterface} from './terminal-execution-message-event-interface';
 import {TerminalExecutionEndEventInterface} from './terminal-execution-end-event-interface';
 
 export class TerminalEvent extends EventService {
@@ -31,14 +32,14 @@ export class TerminalEvent extends EventService {
     this.startExecutionEvent.subscribe(callback);
   }
 
-  public lauchMessageExecutionEvent(data: TerminalExecutionEndEventInterface) {
+  public lauchMessageExecutionEvent(data: TerminalExecutionMessageEventInterface) {
 
-    this.endExecutionEvent.next(data)
+    this.messageExecutionEvent.next(data)
   }
 
-  public onMessageExecutionEvent(callback: (data: TerminalExecutionEndEventInterface) => void) {
+  public onMessageExecutionEvent(callback: (data: TerminalExecutionMessageEventInterface) => void) {
 
-    this.endExecutionEvent.subscribe(callback);
+    this.messageExecutionEvent.subscribe(callback);
   }
 
   public lauchEndExecutionEvent(data: TerminalExecutionEndEventInterface) {

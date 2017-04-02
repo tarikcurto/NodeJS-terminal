@@ -1,7 +1,5 @@
 
-const execSyncService = require('child_process').execSync;
-
-const execAsyncService = require('child_process').exec;
+const childProcess = require('child_process');
 
 import {TerminalArgumentService} from './terminal-argument-service';
 
@@ -37,27 +35,21 @@ export class TerminalService {
    * @type {number}
    */
   public static EXECUTION_ASYNC: number = 1;
-  
-  /**
-   * Child process run asynchronous
-   * with output buffer.
-   * 
-   * @type {number}
-   */
-  public static EXECUTION_ASYNC_BUFFER: number = 2;
 
   /**
    * Child process run synchronous.
    * 
    * @type {number}
    */
-  public static EXECUTION_SYNC: number = 3;
+  public static EXECUTION_SYNC: number = 2;
 
   private commandName: string;
 
-  private execAsyncService: Function;
+  private execAsyncService: any;
 
-  private execSyncService: Function;
+  private execSyncService: (command: string) => Buffer | string;
+
+  private execOutput: Array<string>;
 
   private executionMode: number;
 
@@ -69,8 +61,9 @@ export class TerminalService {
 
     this.eventManager = new TerminalEvent();
 
-    this.execAsyncService = execAsyncService;
-    this.execSyncService = execSyncService;
+    this.execOutput = [];
+    this.execAsyncService = childProcess.exec;
+    this.execSyncService = childProcess.execSync;
     this.argumentService = new TerminalArgumentService();
   }
 
@@ -121,30 +114,7 @@ export class TerminalService {
     }
 
   }
-
-  private execAsync() {
-
-    let childProcess = this.execAsyncService(this.execCommand());
-    this.eventManager.lauchStartExecutionEvent({child_process: childProcess});
-    
-    //Buffer streaming
-    childProcess.stdout.on('data', (data) => {
-      this.eventManager.lauchMessageExecutionEvent({child_process: childProcess, output:data.toString()});
-    });
-  }
-
-  private execSync(): string {
-
-    let childProcess = this.execSyncService(this.execCommand());
-    this.eventManager.lauchStartExecutionEvent({child_process: childProcess});
-
-    let output: string = String(childProcess);
-    this.eventManager.lauchMessageExecutionEvent({child_process: childProcess, output: output})
-    this.eventManager.lauchEndExecutionEvent({child_process: childProcess, output: output});
-
-    return output;
-  }
-
+  
   private execCommand(): string {
 
     let commandName: string = this.commandName;
@@ -160,6 +130,38 @@ export class TerminalService {
     }
 
     return execCommand;
+  }
+
+  private execAsync() {
+
+    let childProcess = this.execAsyncService(this.execCommand());
+    this.eventManager.lauchStartExecutionEvent({child_process: childProcess});
+
+    childProcess.stdout.on('data', (data:Buffer) => {
+      
+      let outputData: string = data.toString();
+      this.execOutput.push(outputData);
+      
+      this.eventManager.lauchMessageExecutionEvent({output: outputData});
+    });
+
+    childProcess.on('exit', (pid: number) => {
+      
+      let fullOutput: string = this.execOutput.join('');
+      this.eventManager.lauchEndExecutionEvent({output: fullOutput, pid: pid});
+    });
+  }
+
+  private execSync(): string {
+
+    let childProcess = this.execSyncService(this.execCommand());
+    this.eventManager.lauchStartExecutionEvent({child_process: childProcess});
+
+    let output: string = String(childProcess);
+    this.eventManager.lauchMessageExecutionEvent({output: output})
+    this.eventManager.lauchEndExecutionEvent({output: output});
+
+    return output;
   }
 
 }
