@@ -16,6 +16,10 @@
     "system",
     "js"
   ],
+  "repository" :
+  { "type" : "git"
+  , "url" : "https://github.com/tarikcurto/nodejs-terminal.git"
+  },
   "author": "tarikcurto",
   "license": "Apache-2.0",
   "dependencies": {
