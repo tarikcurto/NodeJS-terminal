@@ -4,7 +4,7 @@
   "description": "System manager via JS",
   "main": "index.js",
   "scripts": {
-    "start": "node build/module.js",
+    "start": "node build/index.js",
     "build": "tsc",
     "rebuild-run": "npm run build && npm run start"
   },
