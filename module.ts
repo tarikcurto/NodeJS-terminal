@@ -1,14 +1,22 @@
 
-import {TerminalService as _TerminalService}  from './src/module/terminal/service/terminal-service';
+import {TerminalExecutionService as _TerminalExecutionService}  from './src/module/terminal/service/terminal-execution-service';
 
-export const TerminalService = _TerminalService;
+export const TerminalExecutionService = _TerminalExecutionService;
 
-let terminalService = new TerminalService();
+/* --- Example of terminal ---
 
-terminalService.eventManager.onEndExecutionEvent((data)=>{
-  console.log(data.output)
-})
+//instance
+let terminalExecution = new TerminalExecutionService();
 
-terminalService.setCommandName('ipconfig')
-  .setExecutionMode(TerminalService.EXECUTION_ASYNC)
-  .exec();
+//event manager
+terminalExecution.terminalExecutionEvent.onMessageEvent((data)=>{
+  console.log(data.output);
+});
+
+//execute
+terminalExecution.setCommandName('ipconfig');
+terminalExecution.argumentService.addArgument({key: '/all'})
+terminalExecution.setMode(TerminalExecutionService.EXECUTION_ASYNC)
+terminalExecution.exec();
+
+*/
