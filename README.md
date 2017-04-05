@@ -8,7 +8,6 @@ Current version is developed under **TypeScript OOP**, has support for **asynchr
 
 Is based in reactive programming with **RxJS framework** and is able to **interact with I/O buffers of session**.
 
----
 
 Let's go developing!
 -------------
@@ -54,15 +53,13 @@ terminalExecution.setMode(TerminalExecutionService.EXECUTION_ASYNC)
 terminalExecution.exec();
 ```
 
----
-
 For bugs
+-------------
 
 - You can open a issue on [tarikcurto/node-terminal issue](https://github.com/tarikcurto/node-terminal/issues/new).
 
----
-
 About me
+-------------
 
 - I am a passionate developer of 20 years that currently lives in Spain. 
 -  You can contact me through [centro.tarik@live.com](mailto:centro.tarik@live.com)!
