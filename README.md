@@ -20,7 +20,7 @@ npm install tarikcurto.node-terminal
 ```
 
 ```
-git clone --branch 1.0.x https://github.com/tarikcurto/node-terminal.git
+git clone --branch 1.1.x https://github.com/tarikcurto/node-terminal.git
 ```
 
 
