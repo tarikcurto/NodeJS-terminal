@@ -1,2 +1,2 @@
 
-export {TerminalExecutionService}  from './src/module/terminal/service/terminal-execution-service';
+export {TerminalExecutionService}  from './src/terminal/service/terminal-execution-service';

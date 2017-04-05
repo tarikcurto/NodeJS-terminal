@@ -1,16 +1,12 @@
 {
-  "name": "nodejs-terminal",
-  "version": "1.0.1",
-  "description": "System terminal for NodeJS",
+  "name": "node-terminal",
+  "version": "1.1.0",
+  "description": "Reactive terminal for NodeJS with async and sync support.",
   "main": "index.js",
   "scripts": {
-    "start": "node build/index.js",
+    "start": "node index.js",
     "build": "tsc",
     "rebuild-run": "npm run build && npm run start"
-  },
-  "repository": {
-    "type": "git",
-    "url": "red"
   },
   "keywords": [
     "system",
@@ -18,7 +14,7 @@
   ],
   "repository" :
   { "type" : "git"
-  , "url" : "https://github.com/tarikcurto/nodejs-terminal.git"
+  , "url" : "https://github.com/tarikcurto/node-terminal.git"
   },
   "author": "tarikcurto",
   "license": "Apache-2.0",
