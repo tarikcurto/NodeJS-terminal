@@ -1,6 +1,6 @@
 {
-  "name": "node-terminal",
-  "version": "1.1.0",
+  "name": "tarikcurto.node-terminal",
+  "version": "1.1.1",
   "description": "Reactive terminal for NodeJS with async and sync support.",
   "main": "index.js",
   "scripts": {

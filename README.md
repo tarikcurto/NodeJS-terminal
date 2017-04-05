@@ -16,7 +16,7 @@ Let's go developing!
 - First, we need **node-terminal**:
 
 ```
-npm install node-terminal
+npm install tarikcurto.node-terminal
 ```
 
 ```
