@@ -6,3 +6,4 @@ system.iml
 nbproject/
 .idea/
 node-terminal.iml
+npm-debug.log
