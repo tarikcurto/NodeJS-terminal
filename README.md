@@ -9,7 +9,7 @@ Current version is developed under **TypeScript OOP**, has support for **asynchr
 Is based in reactive programming with **RxJS framework** and is able to **interact with I/O buffers of session**.
 
 
-Let's go developing!
+Let's go to develop!
 -------------
 
 
