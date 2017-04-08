@@ -1,14 +1,19 @@
-import {CommandService} from "./src/terminal/service/command/command.service";
-import {ExecutionService} from "./src/terminal/service/execution/execution.service";
-import {SessionExecutionService} from "./src/terminal/service/execution/session-execution.service";
+/*
+ * Copyright 2017 Tarik Curto
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
-let commandService = new CommandService();
-commandService.nameCommandService.nameCommandData = {value: "ipconfig"};
-commandService.argumentCommandService.argumentCommandData.push({key: "/all"});
-
-let executionService:ExecutionService = commandService.instanceExecution();
-let sessionExecutionService: SessionExecutionService = executionService.executeAsync();
-
-sessionExecutionService.mainEventList.subscribeOnCloseSessionEvent((data)=>{
-    console.log(data.fullOutput);
-});
+export {CommandService} from "./src/terminal/service/command/command.service";
+export {ExecutionService} from "./src/terminal/service/execution/execution.service";
+export {SessionExecutionService} from "./src/terminal/service/execution/session-execution.service";
