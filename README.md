@@ -9,7 +9,7 @@ Current version is developed under **TypeScript OOP**, has support for **asynchr
 Is based in reactive programming with **RxJS framework** and is able to **interact with I/O buffers of session**.
 
 
-Let's go developing!
+Let's go to develop!
 -------------
 
 
@@ -20,7 +20,7 @@ npm install tarikcurto.node-terminal
 ```
 
 ```
-git clone --branch 1.0.x https://github.com/tarikcurto/node-terminal.git
+git clone --branch "2.0.x" https://github.com/tarikcurto/node-terminal.git
 ```
 
 
@@ -29,28 +29,35 @@ git clone --branch 1.0.x https://github.com/tarikcurto/node-terminal.git
 const TerminalExecutionService =  require('node-terminal').TerminalExecutionService;
 ```
 ```
-import {TerminalExecutionService} from 'node-terminal';
+import {CommandService} from "tarikcurto.node-terminal";
+import {ExecutionService} from "tarikcurto.node-terminal";
+import {SessionExecutionService} from "tarikcurto.node-terminal";
 ```
 
 
 - **Instance** service:
 ```
-var terminalExecution = new TerminalExecutionService();
+let commandService = new CommandService();
 ```
 
-- Subscribe to **events** of terminal (optional):
+- **Deploy** your query:
 ```
-terminalExecution.terminalExecutionEvent.onMessageEvent((data)=>{
-  console.log(data.output);
+let commandService = new CommandService();
+commandService.nameCommandService.nameCommandData = {value: "ipconfig"};
+commandService.argumentCommandService.argumentCommandData.push({key: "/all"});
+```
+
+- **Execute** your query:
+```
+let executionService:ExecutionService = commandService.instanceExecution();
+let sessionExecutionService: SessionExecutionService = executionService.executeAsync();
+```
+
+- And finally,subscribe to **events** of terminal (optional):
+```
+sessionExecutionService.mainEventList.subscribeOnCloseSessionEvent((data)=>{
+    console.log(data.fullOutput);
 });
-```
-
-- And finally **deploy** you query and **execute**, congrats!
-```
-terminalExecution.setCommandName('ipconfig');
-terminalExecution.argumentService.addArgument({key: '/all'})
-terminalExecution.setMode(TerminalExecutionService.EXECUTION_ASYNC)
-terminalExecution.exec();
 ```
 
 For bugs
