@@ -26,7 +26,7 @@ git clone --branch "2.0.x" https://github.com/tarikcurto/node-terminal.git
 
 - Next step is **import module** to JS or TypeScript file:
 ```
-const TerminalExecutionService =  require('node-terminal').TerminalExecutionService;
+const CommandService =  require('tarikcurto.node-terminal').CommandService;
 ```
 ```
 import {CommandService} from "tarikcurto.node-terminal";
