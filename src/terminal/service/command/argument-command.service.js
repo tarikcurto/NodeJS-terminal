@@ -42,7 +42,7 @@ class ArgumentCommandService {
             argumentText = argument.key;
         }
         else {
-            argumentText = `${argument.key} "${argument.value}"`;
+            argumentText = `${argument.key}=` + JSON.stringify(argument.value);
         }
         return argumentText;
     }
